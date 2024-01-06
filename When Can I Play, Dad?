@@ -1,0 +1,53 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class CoinFlip{
+    public static Scanner watching = new Scanner(System.in);
+    public static Random random = new Random();
+    public static int[] times = {10,15,30,45,60};
+    public static String[] names = {"Hannah","Audrey"};
+    public static void getter(Scanner watching){
+        String ANSI_RESET = "\u001b[0m";
+        String ANSI_BLUE = "\u001b[34m";
+        String ANSI_RED = "\u001b[31m";
+
+        System.out.println("Please type " + ANSI_BLUE + "NAME " + ANSI_RESET + "or " + ANSI_BLUE + "TIME " + ANSI_RESET + "or " + ANSI_BLUE +
+                "NAME AND TIME " + ANSI_RESET + "or type " + ANSI_RED + "EXIT " + ANSI_RESET +"to escape.");
+
+
+        while(true) {
+            String input = watching.nextLine();
+            String nameRando = "It is " + names[random.nextInt(names.length)] + "'s turn to play.";
+            String numRando = "Enjoy your game for " + times[random.nextInt(times.length)] + " minutes.";
+            if (input.equalsIgnoreCase("Name")) {
+                System.out.println(nameRando);
+            }
+            else if (input.equalsIgnoreCase("Time")) {
+                System.out.println(numRando);
+            }
+            else if (input.equalsIgnoreCase("Name and Time")) {
+                System.out.println(nameRando);
+                System.out.println(numRando);
+            }
+            else if (input.equalsIgnoreCase("Exit")) {
+                System.out.println("Goodbye");
+                break;
+            }
+            else if(input.equalsIgnoreCase("love")){
+                System.out.println("I love you, Hannah and Audrey.  With all my heart. Love, Daddy.");
+
+            }else{
+                System.out.println("Please check your spelling and try again.");
+            }
+        }
+
+
+    }
+
+
+    public static void main(String[] args) {
+    CoinFlip.getter(watching);
+
+
+    }
+}
